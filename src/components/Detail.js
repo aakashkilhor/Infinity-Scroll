@@ -21,8 +21,8 @@ const  fetchImageData = async ()=>{
   return (
     <div className="container itemd">
         <h1 className="headingdetail" >Image Details</h1>
-        <p>{imageData?.download_url}</p>
-        <p>{imageData?.id}</p>
+        <a href={imageData?.download_url}>{imageData?.download_url}</a>
+        <p>Id : {imageData?.id}</p>
         <img src={imageData?.download_url} alt="" className="image" height={"auto"} />
     </div>
   );
