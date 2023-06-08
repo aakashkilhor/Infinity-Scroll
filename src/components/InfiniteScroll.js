@@ -7,22 +7,27 @@ const InfiniteScroll = () => {
 
   useEffect(() => {
     fetchData();
+    window.addEventListener("scroll", handleScroll);
   }, [page]);
+
+  const handleScroll = () => {
+    if (window.scrollY >=(document.documentElement.scrollHeight - window.innerHeight)) 
+      {setPage(page + 1);}
+      console.log(window.scrollY)
+  };
 
   const fetchData = async () => {
     try {
       const response = await axios.get(
         `https://picsum.photos/v2/list?page=${page}&limit=10`
       );
-      console.log(data)
       setData((previous) => [...previous, ...response.data]);
+      console.log(window.scrollY);
     } catch (error) {
       console.log(error);
     }
   };
-  const handleload = () => {
-    setPage(page + 1);
-  };
+
   return (
     <div>
       {data.map((item) => (
@@ -34,10 +39,9 @@ const InfiniteScroll = () => {
             height={"225px"}
           />
           <p>{item.author}</p>
-          <p>{item.id}</p>
+          {/* <p>{item.id}</p> */}
         </div>
       ))}
-      <button onClick={handleload}>Click to get more</button>
     </div>
   );
 };
