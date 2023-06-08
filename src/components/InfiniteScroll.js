@@ -13,7 +13,6 @@ const InfiniteScroll = () => {
   const handleScroll = () => {
     if (window.scrollY >=(document.documentElement.scrollHeight - window.innerHeight)) 
       {setPage(page + 1);}
-      console.log(window.scrollY)
   };
 
   const fetchData = async () => {
@@ -39,7 +38,6 @@ const InfiniteScroll = () => {
             height={"225px"}
           />
           <p>{item.author}</p>
-          {/* <p>{item.id}</p> */}
         </div>
       ))}
     </div>
