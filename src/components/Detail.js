@@ -8,6 +8,7 @@ const [imageData, setImageData] = useState();
 
 useEffect(()=>{
     fetchImageData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
 },[itemId]);
 const  fetchImageData = async ()=>{
     try {
