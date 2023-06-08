@@ -1,0 +1,28 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5vh;
+    width: 40vw;
+    cursor: pointer;
+  }
+  
+  .image {
+    width: 400px;
+  }
+  
+  .author {
+    font-size: 20px;
+  }
+  
+  .chosen {
+    font-weight: bold;
+    color: blue;
+  }
+  

@@ -10,9 +10,6 @@ function App() {
         <Routes>
         <Route path="/" element={<InfiniteScroll/>} />
         <Route path="/detail/:itemId" element={<Detail/>} />
-        {/* <Route path="/customer" element={<Customer />} /> */}
-        {/* <Route path="/centres" element={<CentresList/>} /> */}
-        {/* <Route path="/spacecraft" element={<Spacecraft/>} /> */}
         </Routes>
     </Router>
     

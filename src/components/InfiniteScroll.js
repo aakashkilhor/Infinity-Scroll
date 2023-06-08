@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+
 import { useNavigate } from "react-router-dom";
 
 const InfiniteScroll = () => {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
+  const [chosen, setChosen] = useState(false)
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -12,7 +14,14 @@ const InfiniteScroll = () => {
     window.addEventListener("scroll", handleScroll);
   }, [page]);
 
-  const handleScroll = () => {
+// let timeout;
+window.onmousemove = function(){
+  setChosen(false)
+  setTimeout(function(){setChosen(true)}, 5000);
+}
+
+
+const handleScroll = () => {
     if (window.scrollY >=(document.documentElement.scrollHeight - window.innerHeight)) 
       {setPage(page + 1);}
   };
@@ -31,16 +40,18 @@ const InfiniteScroll = () => {
   const handleClick = (itemId)=>{navigate(`detail/${itemId}`)}
 
   return (
-    <div>
-      {data.map((item) => (
-        <div key={item.id} style={{ marginLeft: "36vw" }} onClick={()=>handleClick(item.id)}>
+    <div className="container">
+       <h1 className="heading">Image List</h1>
+      {data.map((item,index) => (
+        <div key={item.id} className="item" onClick={()=>handleClick(item.id)}>
           <img
+            className="image"
             src={item.download_url}
             alt={item.author}
             width={"400px"}
-            height={"225px"}
           />
-          <p>{item.author}</p>
+          <p className="author">{item.author}</p>
+          {chosen&&index>=data.length-2&&<p className="chosen">I am chosen</p>}
         </div>
       ))}
     </div>

@@ -4,7 +4,6 @@ import axios from "axios";
 
 const Detail = () => {
 const {itemId} = useParams();
-// console.log(itemId)
 const [imageData, setImageData] = useState();
 
 useEffect(()=>{
@@ -20,11 +19,11 @@ const  fetchImageData = async ()=>{
 }
 
   return (
-    <div>
-        <h1>Image Details</h1>
+    <div className="container item">
+        <h1 className="heading" >Image Details</h1>
         <p>{imageData?.download_url}</p>
         <p>{imageData?.id}</p>
-        <img src={imageData?.download_url} alt="" height={"100px"} />
+        <img src={imageData?.download_url} alt="" className="image" height={"auto"} />
     </div>
   );
 };
