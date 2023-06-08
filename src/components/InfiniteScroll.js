@@ -12,6 +12,7 @@ const InfiniteScroll = () => {
   useEffect(() => {
     fetchData();
     window.addEventListener("scroll", handleScroll);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
 
 // let timeout;
