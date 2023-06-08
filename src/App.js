@@ -6,7 +6,7 @@ import './App.css';
 function App() {
   return (
     <Router>
-      <Link to="/">Home</Link>
+      <Link to="/" className="home">Home</Link>
         <Routes>
         <Route path="/" element={<InfiniteScroll/>} />
         <Route path="/detail/:itemId" element={<Detail/>} />
